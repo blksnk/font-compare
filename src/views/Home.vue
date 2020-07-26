@@ -6,7 +6,7 @@
     <p>Use the area below to import local fonts.</p>
     <ImportForm />
 
-    <p>Import webfonts by typing their url and name.</p>
+    <p>Import web-hosted fonts by typing their direct url and name.</p>
     <UrlImportForm />
 
     <ImportedFonts />
