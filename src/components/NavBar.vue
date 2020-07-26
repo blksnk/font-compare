@@ -4,7 +4,18 @@
       <span><router-link to="/">select</router-link></span>
       <span><router-link to="/compare">compare</router-link></span>
     </div>
-    <span><router-link to="/about">About</router-link></span>
+    <div>
+      <span><router-link to="/about">About tanuki</router-link></span>
+      <span>
+        <a
+          target="_blank"
+          rel="noopener noreferer"
+          href="https://www.github.com/blksnk/font-compare"
+        >
+          view the code
+        </a>
+      </span>
+    </div>
   </nav>
 </template>
 
@@ -24,8 +35,12 @@
     align-items: center;
     justify-content: flex-start;
 
-    span:first-child {
-      margin-bottom: 1rem;
+    span {
+      margin-bottom: 2rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -41,7 +56,12 @@
 
       &.router-link-exact-active {
         text-decoration: underline;
+        color: #212f3d;
       }
+    }
+
+    &:hover a {
+      color: #212f3d;
     }
   }
 }

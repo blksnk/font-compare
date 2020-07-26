@@ -40,12 +40,24 @@
     <h2>style options</h2>
     <div id="options_list">
       <span>size</span>
-      <input
-        :value="options.style.fontSize"
-        type="number"
-        @input="(e) => onChange(e, 'fontSize')"
-        @change="(e) => onChange(e, 'fontSize')"
-      />
+      <div class="range">
+        <input
+          :value="options.style.fontSize"
+          type="number"
+          min="16"
+          max="200"
+          @input="(e) => onChange(e, 'fontSize')"
+          @change="(e) => onChange(e, 'fontSize')"
+        />
+        <input
+          :value="options.style.fontSize"
+          type="range"
+          min="16"
+          max="200"
+          @input="(e) => onChange(e, 'fontSize')"
+          @change="(e) => onChange(e, 'fontSize')"
+        />
+      </div>
 
       <span>weight</span>
       <button
@@ -129,15 +141,16 @@ export default {
   },
   methods: {
     onChange(e, name, isStyle = true) {
+      const { type, value } = e.target;
       if (isStyle) {
         this.changeStyleOption(
           name,
-          e.target.type === 'number' ? Number(e.target.value) : e.target.value
+          type === 'number' || type === 'range' ? Number(value) : value
         );
       } else if (name === 'string') {
         this.displayText = 'custom';
-        this.customText = e.target.value;
-        this.changeOption(name, e.target.value || 'Preview text');
+        this.customText = value;
+        this.changeOption(name, value || 'Preview text');
       }
     },
     changeStyleOption(name, value) {
@@ -193,6 +206,29 @@ export default {
 
   #o_string {
     grid-column: span 4;
+  }
+
+  .range {
+    display: flex;
+    align-items: flex-start;
+
+    input[type='number'] {
+      width: 3rem;
+      height: 1.5rem;
+      background-color: #2c3e50;
+      color: #dcd7bc;
+      margin-top: 0;
+      text-align: center;
+
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        display: none;
+      }
+    }
+
+    input[type='range'] {
+      flex: 1;
+    }
   }
 }
 </style>

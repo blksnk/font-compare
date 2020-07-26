@@ -82,7 +82,7 @@ h2 {
 p {
   color: #2c3e50;
   font-size: 1rem;
-  line-height: 1rem;
+  line-height: 1.25rem;
   margin-bottom: 1rem;
 }
 
@@ -93,7 +93,7 @@ a {
 
 button {
   background-color: #dcd7bc;
-  padding: 0;
+  padding: 0.26rem 0.25rem 0 0.25rem;
   border: none;
   color: #2c3e50;
 
@@ -109,7 +109,7 @@ textarea {
   outline: none;
   background-color: #dcd7bc;
   border-radius: 0;
-  padding: 0.25rem;
+  padding: 0.26rem 0.25rem 0 0.25rem;
   border: 1px solid #2c3e50;
   color: #2c3e50;
   min-width: unset;
@@ -117,5 +117,35 @@ textarea {
   &:focus {
     border-color: #2c3e50;
   }
+
+  &[type='range'] {
+    -webkit-appearance: none; /*nécessaire pour Chrome */
+    padding: 0; /* nécessaire pour IE */
+    font: inherit;
+
+    &::-webkit-slider-runnable-track {
+      height: inherit;
+      border-radius: 0;
+      padding: 0.25rem;
+      cursor: ew-resize;
+    }
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 1rem;
+      height: 1rem;
+      border-radius: 0;
+      background-color: #2c3e50;
+      cursor: grab;
+    }
+  }
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.bold {
+  font-weight: bold;
 }
 </style>
