@@ -18,10 +18,19 @@
       on github.
     </p>
 
+    <h2>how are data and files handled?</h2>
+    <p>
+      Files imported to Tanuki
+      <span class="bold">don't leave your computer</span>.<br />
+      Fonts are handled and manipulated
+      <span class="underline">directly on your browser</span> and are never
+      sent to a server, nor saved on any database.
+    </p>
+
     <h2>why "tanuki"?</h2>
     <p>
-      "Tanuki" is Japanese for "racoon dog", animals that are often confused
-      with racoons.<br />
+      "Tanuki" is Japanese for "racoon dog", a species that people often
+      confuse with racoons.<br />
       Designers and developers alike often encounter such ambiguity when
       deciding on which font(s) to use for a given project.
     </p>
