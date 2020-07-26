@@ -1,5 +1,5 @@
 <template>
-  <label id="form" @drop.prevent="onDrop" @dragover.prevent>
+  <label id="form" @drop.prevent="onDrop" @dragover.prevent="onDragOver">
     click / drag and drop here.
     <input
       @change="onChange"
@@ -29,10 +29,13 @@ export default {
       });
     },
     onDrop(e) {
-      const file = e.dataTransfer.items[0].getAsFile();
-      if (file) {
-        this.addFontToStore(file);
-      }
+      e.preventDefault();
+      e.dataTransfer.items.forEach((item) => {
+        this.addFontToStore(item.getAsFile());
+      });
+    },
+    onDragOver(e) {
+      e.preventDefault();
     },
     async addFontToStore(file) {
       const font = await generateFont(file);

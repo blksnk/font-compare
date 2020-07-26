@@ -112,6 +112,7 @@ textarea {
   padding: 0.25rem;
   border: 1px solid #2c3e50;
   color: #2c3e50;
+  min-width: unset;
 
   &:focus {
     border-color: #2c3e50;

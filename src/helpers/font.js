@@ -103,7 +103,7 @@ export function sortByTitle(list) {
 export function checkUnique(font, stored) {
   let bool = true;
   Object.keys(stored).forEach((key) => {
-    if (font.file.name === stored[key].file.name) {
+    if (font.title === stored[key].title) {
       bool = false;
     }
   });
