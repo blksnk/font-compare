@@ -13,7 +13,7 @@
     <p>
       Tanuki is a passion project, developed over a couple of days by
       <span class="underline">Jean-Nicolas Veigel</span>, a freelance web
-      developer and design student.<br />
+      developer and designer.<br />
       The entire code for the project is fully open-sourced, and is available
       on github.
     </p>
