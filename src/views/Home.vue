@@ -1,18 +1,20 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <ViewWrapper id="home">
+    <h1>make your selection</h1>
+
+    <h2>import</h2>
+    <p>Use the area below to import local fonts.</p>
+    <ImportForm />
+
+    <p>Import webfonts by typing their url and name.</p>
+    <UrlImportForm />
+
+    <ImportedFonts />
+  </ViewWrapper>
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
-export default {
-  name: "Home",
-  components: {
-    HelloWorld
-  }
-};
-</script>
+<style lang="scss" scoped>
+#home > h2 {
+  margin-bottom: 1rem;
+}
+</style>

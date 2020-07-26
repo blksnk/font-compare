@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <ViewWrapper class="about">
+    <h1>about font-compare</h1>
+  </ViewWrapper>
 </template>
