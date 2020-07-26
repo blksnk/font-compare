@@ -1,0 +1,67 @@
+<template>
+  <label id="form" @drop.prevent="onDrop" @dragover.prevent>
+    click / drag and drop here.
+    <input
+      @change="onChange"
+      type="file"
+      accept="font/woff, font/woff2, font/otf, font/ttf, application/vnd.ms-fontobject"
+      multiple
+    />
+  </label>
+</template>
+
+<script>
+import { generateFont, registerFont, checkUnique } from '@/helpers/font';
+
+export default {
+  name: 'ImportForm',
+  props: {
+    defaultNbr: {
+      type: Number,
+      default: 1,
+    },
+  },
+  methods: {
+    onChange(e) {
+      const { files } = e.target;
+      files.forEach((file) => {
+        this.addFontToStore(file);
+      });
+    },
+    onDrop(e) {
+      const file = e.dataTransfer.items[0].getAsFile();
+      if (file) {
+        this.addFontToStore(file);
+      }
+    },
+    async addFontToStore(file) {
+      const font = await generateFont(file);
+      if (checkUnique(font, this.$store.state.fonts)) {
+        registerFont(font);
+        this.$store.commit('addFont', font);
+      }
+    },
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+#form {
+  width: 100%;
+  height: 8rem;
+  margin-bottom: 2rem;
+  background-color: #dcd7bc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    text-decoration: underline;
+    outline: 1px solid #2c3e50;
+  }
+
+  input {
+    display: none;
+  }
+}
+</style>
