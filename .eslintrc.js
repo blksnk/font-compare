@@ -6,7 +6,7 @@ module.exports = {
   extends: [
     'plugin:vue/essential',
     'eslint:recommended',
-    // '@vue/prettier',
+    'prettier',
     '@vue/eslint-config-airbnb',
   ],
   parserOptions: {
@@ -29,5 +29,6 @@ module.exports = {
     ],
     'no-undef': 'warn',
     'no-restricted-syntax': 'warn',
+    'operator-linebreak': ['warn', 'after'],
   },
 };
