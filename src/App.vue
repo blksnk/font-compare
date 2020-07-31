@@ -90,8 +90,8 @@ p {
 
   a {
     color: #212f3d;
-
-    text-decoration: underline double;
+    text-decoration: underline;
+    font-weight: bold;
   }
 }
 
@@ -118,7 +118,7 @@ textarea {
   outline: none;
   background-color: #dcd7bc;
   border-radius: 0;
-  padding: 0.26rem 0.25rem 0 0.25rem;
+  padding: 0rem 0.25rem 0 0.25rem;
   border: 1px solid #2c3e50;
   color: #2c3e50;
   // min-width: 200px;

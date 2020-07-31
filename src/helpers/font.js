@@ -1,5 +1,5 @@
 import { v4 as createId } from 'uuid';
-import { objToPairs } from '@/helpers/data';
+import { objToPairs, shiftArrayPosition } from '@/helpers/data';
 import {
   capitalize,
   splitCamelCase,
@@ -108,4 +108,18 @@ export function checkUnique(font, stored) {
     }
   });
   return bool;
+}
+
+export function swapFontPosition(list, font, direction) {
+  const pairs = objToPairs(list);
+  let IDs = pairs.map((pair) => pair[0]);
+  let fonts = pairs.map((pair) => pair[1]);
+
+  const currentIndex = fonts.indexOf(font);
+  const newIndex = direction === 'up' ? currentIndex - 1 : currentIndex + 1;
+
+  IDs = shiftArrayPosition(IDs, currentIndex, newIndex);
+  fonts = shiftArrayPosition(fonts, currentIndex, newIndex);
+
+  return Object.fromEntries(IDs.map((id, index) => [id, fonts[index]]));
 }

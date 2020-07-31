@@ -1,11 +1,13 @@
 <template>
   <div id="imported_fonts">
-    <h2>fonts</h2>
     <div id="empty" v-if="isEmpty">
       <span>This list is empty. Imported fonts will show up here.</span>
     </div>
 
-    <FontsList />
+    <div v-else>
+      <h2>fonts</h2>
+      <FontsList />
+    </div>
 
     <div id="links" v-if="!isEmpty">
       <button @click="reset">
@@ -52,8 +54,7 @@ export default {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 4rem;
     grid-gap: 1rem;
-    padding-top: 2rem;
-    border-top: 1px solid #2c3e50;
+    margin-top: 2rem;
     margin-right: 1rem;
 
     * {

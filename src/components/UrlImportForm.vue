@@ -22,6 +22,7 @@
 
 <script>
 import { generateFont, registerFont, checkUnique } from '@/helpers/font';
+import { urlToFile } from '@/helpers/data';
 
 export default {
   name: 'UrlImportForm',
@@ -38,23 +39,11 @@ export default {
       this.name = e.target.value;
     },
     async submit() {
-      try {
-        const res = await window.fetch(this.url, {
-          method: 'GET',
-          mode: 'cors',
-        });
-        const blob = await res.blob();
-        const file = new File(
-          [blob],
-          `${this.name}.${blob.type.split('/')[1]}`
-        );
-        const font = await generateFont(file);
-        if (checkUnique(font, this.$store.state.fonts)) {
-          registerFont(font);
-          this.$store.commit('addFont', font);
-        }
-      } catch (e) {
-        console.error(e);
+      const file = await urlToFile(this.url, this.name);
+      const font = await generateFont(file);
+      if (checkUnique(font, this.$store.state.fonts)) {
+        registerFont(font);
+        this.$store.commit('addFont', font);
       }
     },
   },

@@ -10,21 +10,30 @@ export function mapFilledValues(obj) {
   );
 }
 
-export function streamToBlob(stream, mimeType) {
-  if (mimeType != null && typeof mimeType !== 'string') {
-    throw new Error('Invalid mimetype, expected string.');
+export async function urlToFile(url, name) {
+  let file;
+  try {
+    const res = await window.fetch(url, {
+      method: 'GET',
+      mode: 'cors',
+    });
+    const blob = await res.blob();
+    file = new File([blob], `${name}.${blob.type.split('/')[1]}`);
+  } catch (e) {
+    console.error(e);
   }
-  return new Promise((resolve, reject) => {
-    const chunks = [];
-    stream
-      .on('data', (chunk) => chunks.push(chunk))
-      .once('end', () => {
-        resolve(
-          mimeType != null
-            ? new Blob(chunks, { type: mimeType })
-            : new Blob(chunks)
-        );
-      })
-      .once('error', reject);
-  });
+  if (file) {
+    return file;
+  }
+  return null;
+}
+
+export function shiftArrayPosition(arr, oldIndex, newIndex) {
+  const copy = arr;
+  const movingEl = arr[oldIndex];
+  const oldEl = arr[newIndex];
+  copy[newIndex] = movingEl;
+  copy[oldIndex] = oldEl;
+
+  return copy;
 }

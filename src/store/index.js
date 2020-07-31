@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import { sortByTitle } from '@/helpers/font';
 
 Vue.use(Vuex);
 
@@ -29,13 +30,13 @@ export default new Vuex.Store({
       state.fonts[id] = font;
     },
     addFont(state, font) {
-      state.fonts = {
+      state.fonts = sortByTitle({
         ...state.fonts,
         [font.id]: font,
-      };
+      });
     },
     removeFont(state, id) {
-      delete state.fonts[id];
+      Vue.delete(state.fonts, id);
     },
     replaceFont(state, id, newFont) {
       state.fonts[id] = { ...newFont, id };
