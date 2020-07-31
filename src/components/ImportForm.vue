@@ -53,18 +53,26 @@ export default {
   width: 100%;
   height: 8rem;
   margin-bottom: 2rem;
-  background-color: #dcd7bc;
+  background-color: $c-s;
   display: flex;
   align-items: center;
   justify-content: center;
 
   &:hover {
     text-decoration: underline;
-    outline: 1px solid #2c3e50;
+    outline: 1px solid $c-p;
   }
 
   input {
     display: none;
+  }
+}
+
+.dark #form {
+  background-color: $c-p;
+
+  &:hover {
+    outline-color: $c-s;
   }
 }
 </style>

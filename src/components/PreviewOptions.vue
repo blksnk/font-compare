@@ -232,4 +232,11 @@ export default {
     }
   }
 }
+
+.dark .range {
+  input[type='number'] {
+    background-color: $c-s !important;
+    color: $c-p !important;
+  }
+}
 </style>

@@ -1,0 +1,46 @@
+#app.dark {
+  color: $c-s;
+
+  main {
+    background-color: $c-p-dark;
+  }
+
+  h1,
+  h2 {
+    color: $c-s;
+  }
+
+  h2 {
+    border-color: $c-s-dark;
+  }
+
+  p {
+    color: $c-s-dark;
+
+    a {
+      color: $c-s;
+    }
+  }
+
+  button {
+    background-color: $c-p;
+    color: $c-s;
+  }
+
+  input,
+  textarea {
+    background-color: $c-p;
+    border-color: $c-s;
+    color: $c-s;
+
+    &:focus {
+      border-color: $c-s-dark;
+    }
+
+    &[type='range'] {
+      &::-webkit-slider-thumb {
+        background-color: $c-s;
+      }
+    }
+  }
+}

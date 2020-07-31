@@ -163,8 +163,26 @@ export default {
   #list_end_bar {
     width: 100%;
     height: 1px;
-    background-color: #2c3e50;
+    background-color: $c-p;
     margin-right: 1rem;
+  }
+}
+
+.dark #list {
+  li {
+    border-color: $c-s-dark;
+
+    span {
+      color: $c-s-dark;
+    }
+
+    .font-preview {
+      color: $c-s;
+    }
+  }
+
+  #list_end_bar {
+    background-color: $c-s;
   }
 }
 

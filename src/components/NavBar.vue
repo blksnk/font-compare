@@ -59,16 +59,35 @@ export default {
 
     a {
       text-decoration: none;
-      color: #2c3e50;
+      color: $c-p-dark;
 
       &.router-link-exact-active {
         text-decoration: underline;
-        color: #212f3d;
+        color: $c-p;
       }
     }
 
     &:hover a {
-      color: #212f3d;
+      color: $c-p;
+    }
+  }
+}
+
+.dark #nav {
+  background-color: $c-p;
+
+  span {
+    &:hover a {
+      color: $c-s;
+    }
+
+    a {
+      color: $c-s-dark;
+
+      &.router-link-exact-active {
+        text-decoration: underline;
+        color: $c-s;
+      }
     }
   }
 }

@@ -76,4 +76,13 @@ export default {
     }
   }
 }
+
+.dark #imported_fonts {
+  color: $c-s;
+
+  #links * {
+    color: $c-s;
+    background-color: $c-p;
+  }
+}
 </style>
