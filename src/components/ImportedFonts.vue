@@ -39,7 +39,7 @@ export default {
 <style lang="scss" scoped>
 #imported_fonts {
   margin-top: 3rem;
-  color: #2c3e50;
+  color: $c-p;
 
   h2 {
     border-bottom: none;
@@ -61,9 +61,9 @@ export default {
       font-family: 'Beausite';
       font-size: 1rem;
       line-height: 1rem;
-      color: #2c3e50;
+      color: $c-p;
       height: 100%;
-      background-color: #dcd7bc;
+      background-color: $c-s;
       text-decoration: none;
       display: flex;
       align-items: center;

@@ -216,8 +216,8 @@ export default {
     input[type='number'] {
       width: 3rem;
       height: 1.5rem;
-      background-color: #2c3e50;
-      color: #dcd7bc;
+      background-color: $c-p;
+      color: $c-s;
       margin-top: 0;
       text-align: center;
 
