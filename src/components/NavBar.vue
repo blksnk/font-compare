@@ -5,19 +5,26 @@
       <span><router-link to="/compare">compare</router-link></span>
     </div>
     <div>
-      <span><router-link to="/about">About tanuki</router-link></span>
-      <span>
-        <a
-          target="_blank"
-          rel="noopener noreferer"
-          href="https://www.github.com/blksnk/font-compare"
-        >
-          view the code
+      <span><router-link to="/about">About</router-link></span>
+      <span
+        ><a href="" @click.prevent="toggleDarkMode">
+          {{ $store.state.isDarkMode ? 'light' : 'dark' }} mode
         </a>
       </span>
     </div>
   </nav>
 </template>
+
+<script>
+export default {
+  name: 'NavBar',
+  methods: {
+    toggleDarkMode() {
+      this.$store.commit('toggleDarkMode');
+    },
+  },
+};
+</script>
 
 <style lang="scss">
 #nav {
@@ -27,7 +34,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background-color: #dcd7bc;
+  background-color: $c-s;
 
   div {
     display: flex;

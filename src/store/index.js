@@ -15,6 +15,7 @@ export const initState = {
       textDecoration: 'none',
     },
   },
+  isDarkMode: false,
 };
 
 export default new Vuex.Store({
@@ -49,6 +50,9 @@ export default new Vuex.Store({
     },
     resetPreviewOptions(state) {
       state.previewOptions = initState.previewOptions;
+    },
+    toggleDarkMode(state) {
+      state.isDarkMode = !state.isDarkMode;
     },
   },
   actions: {},
