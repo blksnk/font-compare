@@ -115,11 +115,17 @@ export function swapFontPosition(list, font, direction) {
   let IDs = pairs.map((pair) => pair[0]);
   let fonts = pairs.map((pair) => pair[1]);
 
-  const currentIndex = fonts.indexOf(font);
-  const newIndex = direction === 'up' ? currentIndex - 1 : currentIndex + 1;
+  const fontIndex = fonts.indexOf(font);
+  if (
+    (fontIndex === pairs.length - 1 && direction === 'down') ||
+    (fontIndex === 0 && direction === 'up')
+  ) {
+    return list;
+  }
 
-  IDs = shiftArrayPosition(IDs, currentIndex, newIndex);
-  fonts = shiftArrayPosition(fonts, currentIndex, newIndex);
+  const newIndex = direction === 'up' ? fontIndex - 1 : fontIndex + 1;
+  IDs = shiftArrayPosition(IDs, fontIndex, newIndex);
+  fonts = shiftArrayPosition(fonts, fontIndex, newIndex);
 
   return Object.fromEntries(IDs.map((id, index) => [id, fonts[index]]));
 }
