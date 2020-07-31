@@ -58,6 +58,7 @@ export default {
   * {
     margin-bottom: 1rem;
     margin-right: 1rem;
+    height: 1.5rem;
   }
 
   #input_url {
