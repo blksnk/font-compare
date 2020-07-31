@@ -31,6 +31,7 @@ export function presetText(choice) {
     'Elit exercitation consequat qui consequat eu cupidatat consectetur enim.',
     'Reprehenderit dolore magna mollit eu ullamco labore in est minim sed id ut in nulla esse veniam proident.',
     'Consectetur amet.',
+    'Almost before we knew it, we had left the ground.',
     'The quick brown fox jumps over the lazy dog.',
   ];
   const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';

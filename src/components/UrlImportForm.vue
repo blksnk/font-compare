@@ -1,6 +1,7 @@
 <template>
   <form @submit.prevent="submit" id="url_import">
     <input
+      id="input_url"
       required
       type="text"
       placeholder="url"
@@ -8,6 +9,7 @@
       @input="setUrl"
     />
     <input
+      id="input_name"
       required
       type="text"
       placeholder="name"
@@ -61,8 +63,24 @@ export default {
 
 <style lang="scss" scoped>
 #url_import {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  grid-column-gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+
+  * {
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+  }
+
+  #input_url {
+    flex: 2;
+  }
+
+  #input_name {
+    flex: 1;
+  }
+
+  button {
+    flex: 1;
+  }
 }
 </style>

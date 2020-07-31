@@ -15,7 +15,13 @@
       <span class="underline">Jean-Nicolas Veigel</span>, a freelance web
       developer and designer.<br />
       The entire code for the project is fully open-sourced, and is available
-      on github.
+      on
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://github.com/blksnk/font-compare"
+        >GitHub</a
+      >.
     </p>
 
     <h2>how are data and files handled?</h2>
@@ -56,6 +62,8 @@
 
 <style lang="scss">
 #about {
+  padding-right: 1rem;
+
   h2 {
     margin-top: 4rem;
   }

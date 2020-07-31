@@ -36,8 +36,12 @@ export default {
 
 <style lang="scss" scoped>
 #imported_fonts {
-  margin-top: 4rem;
+  margin-top: 3rem;
   color: #2c3e50;
+
+  h2 {
+    border-bottom: none;
+  }
 
   #empty {
     margin-top: 1rem;
@@ -50,6 +54,7 @@ export default {
     grid-gap: 1rem;
     padding-top: 2rem;
     border-top: 1px solid #2c3e50;
+    margin-right: 1rem;
 
     * {
       font-family: 'Beausite';

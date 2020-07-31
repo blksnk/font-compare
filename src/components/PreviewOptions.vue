@@ -183,6 +183,7 @@ export default {
 <style lang="scss" scoped>
 #options_container {
   margin-bottom: 4rem;
+  padding-right: 1rem;
 }
 #options_list {
   padding-top: 1rem;

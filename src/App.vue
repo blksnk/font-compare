@@ -27,6 +27,8 @@ export default {
   padding: 0;
   box-sizing: border-box;
   font-family: 'Beausite';
+  text-decoration-thickness: 0.2rem;
+
   $c-p: #2c3e50;
   $c-p-dark: #212f3d;
   $c-p-saturated: #235b81;
@@ -47,7 +49,7 @@ body {
 }
 
 #app {
-  // -webkit-font-smoothing: antialiased;
+  //-webkit-font-smoothing: antialiased;
   // -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   display: grid;
@@ -68,6 +70,7 @@ h1 {
   font-size: 2rem;
   line-height: 2rem;
   margin-bottom: 4rem;
+  margin-right: 1rem;
   text-decoration: underline;
 }
 
@@ -84,6 +87,12 @@ p {
   font-size: 1rem;
   line-height: 1.25rem;
   margin-bottom: 1rem;
+
+  a {
+    color: #212f3d;
+
+    text-decoration: underline double;
+  }
 }
 
 button,
@@ -112,7 +121,7 @@ textarea {
   padding: 0.26rem 0.25rem 0 0.25rem;
   border: 1px solid #2c3e50;
   color: #2c3e50;
-  min-width: unset;
+  // min-width: 200px;
 
   &:focus {
     border-color: #2c3e50;
@@ -147,5 +156,11 @@ textarea {
 
 .bold {
   font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+  #app {
+    grid-template-columns: 1fr 2rem;
+  }
 }
 </style>

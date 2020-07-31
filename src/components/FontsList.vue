@@ -52,16 +52,28 @@ export default {
 
 <style lang="scss" scoped>
 #list {
+  border: none;
+  // display: grid;
+  // grid-auto-flow: row;
+  // grid-template-columns: repeat(2, 1fr);
+  // grid-column-gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
   li {
     list-style-type: none;
     min-height: 4rem;
     padding: 0.5rem 0 1rem 0;
-    border-bottom: 1px solid #2c3e50;
+    border-top: 1px solid #2c3e50;
     position: relative;
     display: grid;
     grid-template-columns: 1fr 5rem;
     grid-column-gap: 1rem;
     align-items: center;
+    flex: 1;
+    min-width: 600px;
+    margin-right: 1rem;
 
     &:last-child {
       border-bottom: none;
@@ -90,6 +102,30 @@ export default {
       text-align: right;
       align-self: start;
     }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #list li {
+    min-width: 400px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #list li {
+    min-width: 300px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #list li {
+    min-width: 280px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #list li {
+    min-width: 250px;
   }
 }
 </style>
