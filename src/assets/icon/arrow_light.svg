@@ -1,0 +1,5 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" aria-labelledby="arrow">
+  <title id="title">arrow</title>
+    <line x1="0" y1="12" x2="8" y2="4" stroke="#dcd7bc" stroke-width="1" />
+    <line x1="8" y1="4" x2="16" y2="12" stroke="#dcd7bc" stroke-width="1" />
+</svg>

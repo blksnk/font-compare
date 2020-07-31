@@ -1,0 +1,5 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" aria-labelledby="delete cross">
+  <title id="delete cross"></title>
+  <line x1="0" y1="0" x2="16" y2="16" stroke="#dcd7bc" stroke-width="1" />
+  <line x1="0" y1="16" x2="16" y2="0" stroke="#dcd7bc" stroke-width="1" />
+</svg>
