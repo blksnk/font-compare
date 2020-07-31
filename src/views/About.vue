@@ -13,9 +13,12 @@
     <p>
       Tanuki is a passion project, developed over a couple of days by
       <span class="underline">Jean-Nicolas Veigel</span>, a freelance web
-      developer and designer.<br />
+      developer and designer.
+    </p>
+
+    <p>
       The entire code for the project is fully open-sourced, and is available
-      on
+      for free on
       <a
         target="_blank"
         rel="noopener noreferrer"
@@ -27,7 +30,10 @@
     <h2>how are data and files handled?</h2>
     <p>
       Files imported to Tanuki
-      <span class="bold">don't leave your computer</span>.<br />
+      <span class="bold">don't leave your computer</span>.
+    </p>
+
+    <p>
       Fonts are handled and manipulated
       <span class="underline">directly on your browser</span> and are never
       sent to a server, nor saved on any database.
@@ -35,10 +41,10 @@
 
     <h2>why "tanuki"?</h2>
     <p>
-      "Tanuki" is Japanese for "racoon dog", a species that people often
-      confuse with racoons.<br />
+      The word "tanuki" is Japanese for "racoon dog", a species that people
+      often confuse with racoons.<br />
       Designers and developers alike often encounter such ambiguity when
-      deciding on which font(s) to use for a given project.
+      deciding on which fonts to use for a given project.
     </p>
 
     <p>
