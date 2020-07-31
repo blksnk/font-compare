@@ -15,7 +15,7 @@
           title="move up"
           aria-labelledby="move up"
         >
-          <img src="@/assets/icon/arrow.svg" alt="move up" />
+          <img :src="icons.arrow" alt="move up" />
         </button>
         <button
           @click="() => moveFont(font, 'down')"
@@ -23,11 +23,7 @@
           title="move down"
           aria-labelledby="move down"
         >
-          <img
-            class="reverse"
-            src="@/assets/icon/arrow.svg"
-            alt="move down"
-          />
+          <img class="reverse" :src="icons.arrow" alt="move down" />
         </button>
         <button
           @click="() => removeFont(font)"
@@ -35,7 +31,7 @@
           title="delete"
           aria-labelledby="delete"
         >
-          <img src="@/assets/icon/cross.svg" alt="delete" />
+          <img :src="icons.cross" alt="delete" />
         </button>
       </div>
 
@@ -49,6 +45,10 @@
 
 <script>
 import { createStyleString, swapFontPosition } from '@/helpers/font';
+import arrow from '@/assets/icon/arrow.svg';
+import arrowLight from '@/assets/icon/arrow_light.svg';
+import cross from '@/assets/icon/cross.svg';
+import crossLight from '@/assets/icon/cross_light.svg';
 
 export default {
   name: 'FontsList',
@@ -69,7 +69,6 @@ export default {
       return createStyleString(sObj);
     },
     removeFont(font) {
-      console.log(font.id);
       this.$store.commit('removeFont', font.id);
     },
     moveFont(font, direction) {
@@ -82,6 +81,17 @@ export default {
     },
   },
   computed: {
+    icons() {
+      const lightIcons = {
+        arrow: arrowLight,
+        cross: crossLight,
+      };
+      const defaultIcons = {
+        arrow,
+        cross,
+      };
+      return this.$store.state.isDarkMode ? lightIcons : defaultIcons;
+    },
     options() {
       return this.$store.state.previewOptions;
     },
@@ -99,14 +109,14 @@ export default {
     list-style-type: none;
     min-height: 4rem;
     padding: 0.5rem 0 4rem 0;
-    border-top: 1px solid #2c3e50;
+    border-top: 1px solid $c-p;
     position: relative;
     display: grid;
     grid-template-columns: 1fr 5rem;
     grid-template-rows: 1rem auto;
     grid-column-gap: 1rem;
     grid-row-gap: 0.5rem;
-    align-items: center;
+    align-items: start;
     flex: 1;
     min-width: 600px;
     margin-right: 1rem;
@@ -125,13 +135,7 @@ export default {
       grid-column: 1 / span 2;
       grid-row: 2 / span 1;
       overflow-wrap: anywhere;
-      color: #212f3d;
-    }
-
-    .font-info-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      color: $c-p-dark;
     }
 
     .font-manage {
