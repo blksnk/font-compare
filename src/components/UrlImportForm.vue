@@ -54,6 +54,7 @@ export default {
 #url_import {
   display: flex;
   flex-wrap: wrap;
+  margin-right: -1rem;
 
   * {
     margin-bottom: 1rem;
