@@ -108,7 +108,7 @@ export default {
   li {
     list-style-type: none;
     min-height: 4rem;
-    padding: 0.5rem 0 4rem 0;
+    padding: 0.5rem 0 2rem 0;
     border-top: 1px solid $c-p;
     position: relative;
     display: grid;
@@ -152,6 +152,7 @@ export default {
         align-self: end;
         justify-self: end;
         margin-left: 1rem;
+        transform: rotate(270deg);
 
         img {
           height: 1rem;
@@ -187,6 +188,12 @@ export default {
 
   #list_end_bar {
     background-color: $c-s;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .font-manage-btn {
+    transform: rotate(0deg) !important;
   }
 }
 
