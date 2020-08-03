@@ -49,6 +49,10 @@ export default {
         margin-bottom: 0;
       }
     }
+
+    &:last-child span:last-child {
+      height: 6.5rem;
+    }
   }
 
   span {
