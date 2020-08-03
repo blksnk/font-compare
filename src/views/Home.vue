@@ -2,14 +2,19 @@
   <ViewWrapper id="home">
     <h1>make your selection</h1>
 
-    <div id="import">
-      <h2>import</h2>
-      <p>Use the area below to import local fonts.</p>
-      <ImportForm />
+    <Retractable title="file import (automatic naming)">
+      <div>
+        <p>Use the area below to import local fonts.</p>
+        <ImportForm />
+      </div>
+    </Retractable>
 
-      <p>Import web-hosted fonts by typing their direct url and name.</p>
-    </div>
-    <UrlImportForm />
+    <Retractable title="url import (manual naming)">
+      <div>
+        <p>Import web-hosted fonts by typing their direct url and name.</p>
+        <UrlImportForm />
+      </div>
+    </Retractable>
 
     <ImportedFonts />
   </ViewWrapper>
@@ -18,12 +23,5 @@
 <style lang="scss">
 #home > h2 {
   margin-bottom: 1rem;
-}
-#import {
-  margin-right: 1rem;
-
-  h2 {
-    margin-bottom: 0.5rem;
-  }
 }
 </style>
