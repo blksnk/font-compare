@@ -1,130 +1,132 @@
 <template>
   <div id="options_container">
-    <h2>text options</h2>
-    <div id="options_list">
-      <span>custom</span>
-      <input
-        id="o_string"
-        type="text"
-        placeholder="Preview text"
-        @input="(e) => onChange(e, 'string', false)"
-      />
-
-      <span>generated</span>
-      <button
-        @click="(e) => generateText('custom')"
-        :class="{ active: displayText === 'custom' }"
-      >
-        custom
-      </button>
-      <button
-        @click="(e) => generateText('sentence')"
-        :class="{ active: displayText === 'sentence' }"
-      >
-        sentence
-      </button>
-      <button
-        @click="(e) => generateText('alphabet')"
-        :class="{ active: displayText === 'alphabet' }"
-      >
-        alphabet
-      </button>
-      <button
-        @click="(e) => generateText('numbers')"
-        :class="{ active: displayText === 'numbers' }"
-      >
-        numbers
-      </button>
-    </div>
-
-    <h2>style options</h2>
-    <div id="options_list">
-      <span>size</span>
-      <div class="range">
+    <Retractable title="text options" class="list_container">
+      <div id="options_list">
+        <span>custom</span>
         <input
-          :value="options.style.fontSize"
-          type="number"
-          min="16"
-          max="200"
-          @input="(e) => onChange(e, 'fontSize')"
-          @change="(e) => onChange(e, 'fontSize')"
+          id="o_string"
+          type="text"
+          placeholder="Preview text"
+          @input="(e) => onChange(e, 'string', false)"
         />
-        <input
-          :value="options.style.fontSize"
-          type="range"
-          min="16"
-          max="200"
-          @input="(e) => onChange(e, 'fontSize')"
-          @change="(e) => onChange(e, 'fontSize')"
-        />
+
+        <span>generated</span>
+        <button
+          @click="(e) => generateText('custom')"
+          :class="{ active: displayText === 'custom' }"
+        >
+          custom
+        </button>
+        <button
+          @click="(e) => generateText('sentence')"
+          :class="{ active: displayText === 'sentence' }"
+        >
+          sentence
+        </button>
+        <button
+          @click="(e) => generateText('alphabet')"
+          :class="{ active: displayText === 'alphabet' }"
+        >
+          alphabet
+        </button>
+        <button
+          @click="(e) => generateText('numbers')"
+          :class="{ active: displayText === 'numbers' }"
+        >
+          numbers
+        </button>
       </div>
+    </Retractable>
 
-      <span>weight</span>
-      <button
-        @click="(e) => changeStyleOption('fontWeight', 'normal')"
-        :class="{ active: options.style.fontWeight === 'normal' }"
-      >
-        normal
-      </button>
-      <button
-        @click="(e) => changeStyleOption('fontWeight', 'bold')"
-        :class="{ active: options.style.fontWeight === 'bold' }"
-      >
-        bold
-      </button>
+    <Retractable title="style options">
+      <div id="options_list">
+        <span>size</span>
+        <div class="range">
+          <input
+            :value="options.style.fontSize"
+            type="number"
+            min="16"
+            max="200"
+            @input="(e) => onChange(e, 'fontSize')"
+            @change="(e) => onChange(e, 'fontSize')"
+          />
+          <input
+            :value="options.style.fontSize"
+            type="range"
+            min="16"
+            max="200"
+            @input="(e) => onChange(e, 'fontSize')"
+            @change="(e) => onChange(e, 'fontSize')"
+          />
+        </div>
 
-      <span>transform</span>
-      <button
-        @click="(e) => changeStyleOption('textTransform', 'none')"
-        :class="{ active: options.style.textTransform === 'none' }"
-      >
-        none
-      </button>
-      <button
-        @click="(e) => changeStyleOption('textTransform', 'capitalize')"
-        :class="{ active: options.style.textTransform === 'capitalize' }"
-      >
-        capitalize
-      </button>
-      <button
-        @click="(e) => changeStyleOption('textTransform', 'lowercase')"
-        :class="{ active: options.style.textTransform === 'lowercase' }"
-      >
-        lowercase
-      </button>
-      <button
-        @click="(e) => changeStyleOption('textTransform', 'uppercase')"
-        :class="{ active: options.style.textTransform === 'uppercase' }"
-      >
-        uppercase
-      </button>
+        <span>weight</span>
+        <button
+          @click="(e) => changeStyleOption('fontWeight', 'normal')"
+          :class="{ active: options.style.fontWeight === 'normal' }"
+        >
+          normal
+        </button>
+        <button
+          @click="(e) => changeStyleOption('fontWeight', 'bold')"
+          :class="{ active: options.style.fontWeight === 'bold' }"
+        >
+          bold
+        </button>
 
-      <span>decoration</span>
-      <button
-        @click="(e) => changeStyleOption('textDecoration', 'none')"
-        :class="{ active: options.style.textDecoration === 'none' }"
-      >
-        none
-      </button>
-      <button
-        @click="(e) => changeStyleOption('textDecoration', 'underline')"
-        :class="{ active: options.style.textDecoration === 'underline' }"
-      >
-        underline
-      </button>
-      <button
-        @click="(e) => changeStyleOption('textDecoration', 'line-through')"
-        :class="{ active: options.style.textDecoration === 'line-through' }"
-      >
-        line through
-      </button>
-      <button
-        @click="(e) => changeStyleOption('textDecoration', 'overline')"
-        :class="{ active: options.style.textDecoration === 'overline' }"
-      >
-        overline
-      </button>
-    </div>
+        <span>transform</span>
+        <button
+          @click="(e) => changeStyleOption('textTransform', 'none')"
+          :class="{ active: options.style.textTransform === 'none' }"
+        >
+          none
+        </button>
+        <button
+          @click="(e) => changeStyleOption('textTransform', 'capitalize')"
+          :class="{ active: options.style.textTransform === 'capitalize' }"
+        >
+          capitalize
+        </button>
+        <button
+          @click="(e) => changeStyleOption('textTransform', 'lowercase')"
+          :class="{ active: options.style.textTransform === 'lowercase' }"
+        >
+          lowercase
+        </button>
+        <button
+          @click="(e) => changeStyleOption('textTransform', 'uppercase')"
+          :class="{ active: options.style.textTransform === 'uppercase' }"
+        >
+          uppercase
+        </button>
+
+        <span>decoration</span>
+        <button
+          @click="(e) => changeStyleOption('textDecoration', 'none')"
+          :class="{ active: options.style.textDecoration === 'none' }"
+        >
+          none
+        </button>
+        <button
+          @click="(e) => changeStyleOption('textDecoration', 'underline')"
+          :class="{ active: options.style.textDecoration === 'underline' }"
+        >
+          underline
+        </button>
+        <button
+          @click="(e) => changeStyleOption('textDecoration', 'line-through')"
+          :class="{ active: options.style.textDecoration === 'line-through' }"
+        >
+          line through
+        </button>
+        <button
+          @click="(e) => changeStyleOption('textDecoration', 'overline')"
+          :class="{ active: options.style.textDecoration === 'overline' }"
+        >
+          overline
+        </button>
+      </div>
+    </Retractable>
   </div>
 </template>
 
@@ -184,15 +186,19 @@ export default {
 #options_container {
   margin-bottom: 4rem;
   padding-right: 1rem;
+
+  section {
+    margin-bottom: 4rem;
+  }
 }
+
 #options_list {
-  padding-top: 1rem;
+  margin-top: 1rem;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-auto-rows: 1.5rem;
   grid-column-gap: 1rem;
   grid-row-gap: 1rem;
-  margin-bottom: 4rem;
 
   button,
   input,
