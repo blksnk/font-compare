@@ -23,25 +23,29 @@ export default {
   },
   methods: {
     onChange(e) {
-      const { files } = e.target;
-      files.forEach((file) => {
-        this.addFontToStore(file);
-      });
+      this.addFonts([...e.target.files]);
     },
     onDrop(e) {
-      e.preventDefault();
-      e.dataTransfer.items.forEach((item) => {
-        this.addFontToStore(item.getAsFile());
-      });
+      this.addFonts(
+        [...e.dataTransfer.items].map((item) => item.getAsFile())
+      );
     },
     onDragOver(e) {
       e.preventDefault();
     },
-    async addFontToStore(file) {
-      const font = await generateFont(file);
-      if (checkUnique(font, this.$store.state.fonts)) {
-        registerFont(font);
-        this.$store.commit('addFont', font);
+    async addFonts(files) {
+      try {
+        const fonts = await Promise.all(
+          files.map((file) => generateFont(file))
+        );
+        fonts.forEach((font) => {
+          if (checkUnique(font, this.$store.state.fonts)) {
+            registerFont(font);
+            this.$store.commit('addFont', font);
+          }
+        });
+      } catch (e) {
+        console.error(e);
       }
     },
   },
